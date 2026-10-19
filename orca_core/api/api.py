@@ -15,7 +15,7 @@ from fastapi import FastAPI, HTTPException, Body
 from pydantic import BaseModel, Field
 import uvicorn
 
-from orca_core import OrcaHand
+from src.orca_core.orca_core import OrcaHand
 
 app = FastAPI(title="OrcaHand API", version="1.0.0")
 

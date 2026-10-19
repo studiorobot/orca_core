@@ -11,9 +11,9 @@ import shutil
 
 import numpy as np
 import pytest
-from orca_core import MockOrcaHand
-from orca_core.calibration import JointEncoderCal
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core import MockOrcaHand
+from src.orca_core.orca_core.calibration import JointEncoderCal
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_NUM_JOINTS,
     ENCODER_LSB_DEG,
     JOINT_ENCODER_POLARITY,

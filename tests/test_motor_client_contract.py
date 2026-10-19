@@ -16,14 +16,14 @@ import types
 import numpy as np
 import pytest
 
-import orca_core.hardware.mock_dynamixel_client as mock_dynamixel_client_module
-from orca_core.hardware.dynamixel_client import DynamixelClient
-from orca_core.hardware.feetech_client import FeetechClient
-from orca_core.hardware.mock_dynamixel_client import (
+import src.orca_core.orca_core.hardware.mock_dynamixel_client as mock_dynamixel_client_module
+from src.orca_core.orca_core.hardware.dynamixel_client import DynamixelClient
+from src.orca_core.orca_core.hardware.feetech_client import FeetechClient
+from src.orca_core.orca_core.hardware.mock_dynamixel_client import (
     MockDynamixelClient,
     dynamixel_cleanup_handler as mock_cleanup_handler,
 )
-from orca_core.hardware.motor_client import MotorClient
+from src.orca_core.orca_core.hardware.motor_client import MotorClient
 
 
 @pytest.fixture

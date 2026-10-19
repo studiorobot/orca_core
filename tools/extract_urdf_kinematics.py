@@ -40,7 +40,7 @@ import xml.etree.ElementTree as ET
 import numpy as np
 import yaml
 
-from orca_core.kinematics.transforms import Transform
+from src.orca_core.orca_core.kinematics.transforms import Transform
 
 THUMB_CHAIN_JOINTS = ["thumb_cmc", "thumb_abd", "thumb_mcp", "thumb_dip"]
 FINGER_CHAIN_JOINTS = ["abd", "mcp", "pip"]

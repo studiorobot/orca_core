@@ -5,6 +5,8 @@
 # You may use, copy, modify, and distribute this file under the terms of the MIT License.
 # See the LICENSE file at the root of this repository for full license information.
 # ==============================================================================
+from src.orca_core.orca_core.kinematics import HandKinematics, Transform
+
 from .base_hand import BaseHand
 from .calibration import CalibrationResult
 from .hand_config import BaseHandConfig
@@ -26,7 +28,7 @@ from .hand_factory import HandDetection, detect_hand, load_hand
 from .hardware.joint_encoder_client import EncodersNotAvailableError
 from .hardware.sensing.types import LinkHealth, TaxelData
 from .joint_position import OrcaJointPositions
-from .kinematics import HandKinematics, Transform, frames
+from .kinematics import frames
 from .version import LATEST_VERSION
 
 __all__ = [

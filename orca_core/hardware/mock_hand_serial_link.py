@@ -15,7 +15,7 @@ implementation to drift.
 import threading
 from collections.abc import Callable
 
-from orca_core.hardware.hand_serial_link import HandSerialLink
+from src.orca_core.orca_core.hardware.hand_serial_link import HandSerialLink
 
 ResponseProvider = Callable[[bytes], bytes | None]
 """Receives the request bytes; returns response bytes to inject (or ``None``)."""

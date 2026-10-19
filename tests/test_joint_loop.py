@@ -14,15 +14,15 @@ import time
 import numpy as np
 import pytest
 
-from orca_core.control import JointController, JointLoopThread
-from orca_core.control.constants import (
+from src.orca_core.orca_core.control import JointController, JointLoopThread
+from src.orca_core.orca_core.control.constants import (
     WATCHDOG_HOLD_BASE_MS,
     WATCHDOG_HOLD_MS,
     WATCHDOG_STOP_LOOP_MS,
     WATCHDOG_WARN_MS,
 )
 
-from tests._loop_helpers import (
+from src.orca_core.tests._loop_helpers import (
     StaticEncoderSource,
     encoder_reading_from_joint_angles,
     make_calibrated_hand,

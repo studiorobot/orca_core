@@ -4,19 +4,19 @@ import shutil
 import numpy as np
 import pytest
 import yaml
-from orca_core.calibration import (
+from src.orca_core.orca_core.calibration import (
     CalibrationResult,
     JointEncoderCal,
     joint_encoder_calibration_to_yaml,
 )
-from orca_core.constants import JOINT_ENCODER_CALIBRATION
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.constants import JOINT_ENCODER_CALIBRATION
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_NUM_JOINTS,
     ENCODER_LSB_DEG,
     JOINT_TO_ENCODER_SLOT,
 )
-from orca_core import MockOrcaHand
-from orca_core.utils import read_yaml, update_yaml
+from src.orca_core.orca_core import MockOrcaHand
+from src.orca_core.orca_core.utils import read_yaml, update_yaml
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_DIR = os.path.join(REPO_ROOT, "orca_core", "models", "v2", "orcahand-joint-right")
@@ -196,7 +196,7 @@ def test_raw_to_joint_angle_polarity_and_wrap(calib_dir, monkeypatch):
     handled at the ±180° boundary."""
     import dataclasses as dc
 
-    from orca_core.hardware.sensing import constants as sensing_constants
+    from src.orca_core.orca_core.hardware.sensing import constants as sensing_constants
 
     monkeypatch.setitem(sensing_constants.JOINT_ENCODER_POLARITY, "thumb_cmc", 1)
     monkeypatch.setitem(sensing_constants.JOINT_ENCODER_POLARITY, "index_mcp", -1)
@@ -244,7 +244,7 @@ def _enable_joint_feedback(config_path):
 
 
 def test_calibrate_with_joint_feedback_persists_encoder_block(calib_dir):
-    from tests._encoder_helpers import MockJointEncoderSource
+    from src.orca_core.tests._encoder_helpers import MockJointEncoderSource
 
     config_path = calib_dir / "config.yaml"
     _enable_joint_feedback(config_path)
@@ -285,7 +285,7 @@ def test_encoder_backed_joints_respects_config_subset(calib_dir):
 def test_encoder_backed_joints_all_selects_every_slotted_motor_joint(calib_dir):
     """The ``["all"]`` default expands to every joint that has both an encoder
     slot and a driving motor, excluding the wrist."""
-    from orca_core.hardware.sensing.constants import JOINT_TO_ENCODER_SLOT
+    from src.orca_core.orca_core.hardware.sensing.constants import JOINT_TO_ENCODER_SLOT
 
     config_path = calib_dir / "config.yaml"
     update_yaml(str(config_path), "joint_encoder_joints", ["all"])
@@ -313,7 +313,7 @@ def test_encoder_backed_joints_empty_when_field_unset(tmp_path):
 
 def test_calibrate_writes_encoder_block_only_for_configured_subset(calib_dir):
     """Encoder pass runs only for joints listed in joint_encoder_joints."""
-    from tests._encoder_helpers import MockJointEncoderSource
+    from src.orca_core.tests._encoder_helpers import MockJointEncoderSource
 
     config_path = calib_dir / "config.yaml"
     update_yaml(str(config_path), "joint_encoder_joints", ["ring_mcp", "ring_pip"])
@@ -411,8 +411,8 @@ def _seed_anchor_block(calib_dir, anchors):
 def test_failed_anchor_sample_keeps_previous_anchor(calib_dir, monkeypatch):
     """A failed encoder anchor sample must keep the joint's previously
     persisted anchor instead of deleting it."""
-    from orca_core.hardware.joint_encoder_client import JointEncoderCalibrationError
-    from orca_core.maintenance import calibration_routine
+    from src.orca_core.orca_core.hardware.joint_encoder_client import JointEncoderCalibrationError
+    from src.orca_core.orca_core.maintenance import calibration_routine
 
     config_path = calib_dir / "config.yaml"
     update_yaml(str(config_path), "joint_encoder_joints", ["ring_mcp", "ring_pip"])
@@ -453,7 +453,7 @@ def test_failed_anchor_sample_keeps_previous_anchor(calib_dir, monkeypatch):
 def test_aborted_run_preserves_previous_anchors_on_disk(calib_dir, monkeypatch):
     """Aborting after the first step must leave previously persisted anchors
     of not-yet-visited joints in calibration.yaml."""
-    from orca_core.maintenance import calibration_routine
+    from src.orca_core.orca_core.maintenance import calibration_routine
 
     config_path = calib_dir / "config.yaml"
     update_yaml(str(config_path), "joint_encoder_joints", ["ring_mcp", "ring_pip"])
@@ -496,7 +496,7 @@ def test_aborted_run_preserves_previous_anchors_on_disk(calib_dir, monkeypatch):
 
 
 def test_run_calibration_persist_false_leaves_disk_untouched(calib_dir):
-    from orca_core.maintenance.calibration_routine import run_calibration
+    from src.orca_core.orca_core.maintenance.calibration_routine import run_calibration
 
     calib_path = calib_dir / "calibration.yaml"
     hand = MockOrcaHand(config_path=str(calib_dir / "config.yaml"))
@@ -567,7 +567,7 @@ def test_second_calibrate_skips_wrist_with_event(calib_dir):
 
 
 def test_validator_rejects_unknown_joint_in_joint_encoder_joints(tmp_path):
-    from orca_core.hand_config import HandConfigValidationError
+    from src.orca_core.orca_core.hand_config import HandConfigValidationError
 
     src_config = os.path.join(MODEL_DIR, "config.yaml")
     config_path = tmp_path / "config.yaml"
@@ -579,7 +579,7 @@ def test_validator_rejects_unknown_joint_in_joint_encoder_joints(tmp_path):
 
 
 def test_validator_rejects_wrist_in_joint_encoder_joints(tmp_path):
-    from orca_core.hand_config import HandConfigValidationError
+    from src.orca_core.orca_core.hand_config import HandConfigValidationError
 
     src_config = os.path.join(MODEL_DIR, "config.yaml")
     config_path = tmp_path / "config.yaml"

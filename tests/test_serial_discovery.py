@@ -7,16 +7,16 @@ from unittest.mock import patch
 import pytest
 import serial as pyserial
 
-from orca_core.constants import ORCA_ID_RESP_MOTOR, ORCA_ID_RESP_SENSOR
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.constants import ORCA_ID_RESP_MOTOR, ORCA_ID_RESP_SENSOR
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_PAYLOAD_BYTES,
     DEFAULT_ENCODER_BAUDRATE,
     DEFAULT_SENSOR_BAUDRATE,
     FTDI_VID,
     PROTOCOL_HEADER_AUTO_ENC,
 )
-from orca_core.hardware.sensing.framing import calculate_checksum
-from orca_core.hardware.sensing.serial_discovery import (
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.serial_discovery import (
     SensingPorts,
     _probe_orca_id,
     _tactile_responds_at,
@@ -27,7 +27,7 @@ from orca_core.hardware.sensing.serial_discovery import (
     find_tactile_port,
     resolve_sensing_ports,
 )
-from orca_core.utils.utils import auto_detect_port
+from src.orca_core.orca_core.utils.utils import auto_detect_port
 
 
 PAXINI_VID, OH_VID = 0x28E9, 0x2F5D

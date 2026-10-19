@@ -3,7 +3,7 @@ import os
 import numpy as np
 import pytest
 import yaml
-from orca_core.utils import update_yaml, read_yaml
+from src.orca_core.orca_core.utils import update_yaml, read_yaml
 
 
 @pytest.fixture

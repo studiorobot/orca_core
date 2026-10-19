@@ -5,11 +5,11 @@ from pathlib import Path
 import pytest
 import yaml
 
-from orca_core import LATEST_VERSION, canonical_joint_ids
-from orca_core.constants import DEFAULT_MODEL_NAME
-from orca_core.hand_config import BaseHandConfig, OrcaHandConfig
-from orca_core.utils import get_model_path, update_yaml
-from orca_core.utils.utils import read_yaml
+from src.orca_core.orca_core import LATEST_VERSION, canonical_joint_ids
+from src.orca_core.orca_core.constants import DEFAULT_MODEL_NAME
+from src.orca_core.orca_core.hand_config import BaseHandConfig, OrcaHandConfig
+from src.orca_core.orca_core.utils import get_model_path, update_yaml
+from src.orca_core.orca_core.utils.utils import read_yaml
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent

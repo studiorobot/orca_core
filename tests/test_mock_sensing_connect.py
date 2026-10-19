@@ -5,9 +5,9 @@ bundled configs and never enumerates or probes real serial hardware.
 
 import pytest
 
-from orca_core import load_hand
-import orca_core.hardware_hand_sensing as hardware_hand_sensing
-from orca_core.hardware.sensing import serial_discovery
+from src.orca_core.orca_core import load_hand
+import src.orca_core.orca_core.hardware_hand_sensing as hardware_hand_sensing
+from src.orca_core.orca_core.hardware.sensing import serial_discovery
 
 
 @pytest.fixture(autouse=True)

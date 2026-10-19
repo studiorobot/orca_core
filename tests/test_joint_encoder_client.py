@@ -13,18 +13,18 @@ import time
 import numpy as np
 import pytest
 
-from orca_core.hardware.joint_encoder_client import (
+from src.orca_core.orca_core.hardware.joint_encoder_client import (
     EncodersNotAvailableError,
     JointEncoderClient,
 )
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_NUM_JOINTS,
     PROTOCOL_BYTE_AUTO_ENC,
 )
 
-from tests._encoder_helpers import feed_encoder_frame
-from tests._helpers import wait_until
+from src.orca_core.tests._encoder_helpers import feed_encoder_frame
+from src.orca_core.tests._helpers import wait_until
 
 
 # ---------------------------------------------------------------------------

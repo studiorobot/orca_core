@@ -21,8 +21,8 @@ from functools import lru_cache
 import numpy as np
 import yaml
 
-from orca_core.kinematics import frames
-from orca_core.kinematics.transforms import Transform, rotation_about_axis
+from src.orca_core.orca_core.kinematics import frames
+from src.orca_core.orca_core.kinematics.transforms import Transform, rotation_about_axis
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 

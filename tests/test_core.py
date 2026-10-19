@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from orca_core import OrcaHand, OrcaJointPositions
-from orca_core import MockOrcaHand
-from orca_core.utils import get_model_path
+from src.orca_core.orca_core import OrcaHand, OrcaJointPositions
+from src.orca_core.orca_core import MockOrcaHand
+from src.orca_core.orca_core.utils import get_model_path
 import pytest
 
 

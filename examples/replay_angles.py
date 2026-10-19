@@ -6,7 +6,7 @@ import time
 import numpy as np
 import yaml
 
-from orca_core.utils.cli import (
+from src.orca_core.orca_core.utils.cli import (
     add_hand_arguments,
     connect_hand,
     create_hand,
@@ -66,6 +66,7 @@ def main() -> int:
             for index, start in enumerate(waypoints):
                 if not args.loop and index == len(waypoints) - 1:
                     hand.set_joint_positions(np.asarray(start, dtype=np.float64))
+                    time.sleep(args.transition_time)
                     return 0
                 end = waypoints[(index + 1) % len(waypoints)]
                 n_steps = max(1, int(args.transition_time / args.step_time))

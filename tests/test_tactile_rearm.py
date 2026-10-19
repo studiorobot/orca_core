@@ -4,14 +4,14 @@ import time
 
 import pytest
 
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.constants import (
     ADDR_AUTO_DATA_TYPE,
     ADDR_AUTO_ENABLE,
     REGISTER_DISABLE,
     REGISTER_ENABLE,
     TACTILE_STREAM_STALE_REARM_S,
 )
-from orca_core.hardware.sensing.tactile_mock import feed_resultant_frame
+from src.orca_core.orca_core.hardware.sensing.tactile_mock import feed_resultant_frame
 
 FORCES = {f: [0.0, 0.0, 0.5] for f in ("thumb", "index", "middle", "ring", "pinky")}
 

@@ -15,27 +15,12 @@ import time
 from typing import Optional, Sequence, Tuple
 import numpy as np
 
+from src.orca_core.orca_core.hardware.feetech import COMM_SUCCESS, SMS_STS_ACC, SMS_STS_BAUD_RATE, SMS_STS_GOAL_POSITION_L, SMS_STS_GOAL_SPEED_L, SMS_STS_GOAL_TIME_L, SMS_STS_ID, SMS_STS_MODE, SMS_STS_MOVING, SMS_STS_PRESENT_CURRENT_L, SMS_STS_PRESENT_POSITION_L, SMS_STS_PRESENT_SPEED_L, SMS_STS_PRESENT_TEMPERATURE, SMS_STS_TORQUE_ENABLE, GroupSyncRead, GroupSyncWrite, PortHandler
+
 from ..constants import FEETECH
 from .motor_client import MotionTimeoutError, MotorClient, MotorRead
 from .feetech import (
-    PortHandler,
     sms_sts,
-    GroupSyncWrite,
-    GroupSyncRead,
-    COMM_SUCCESS,
-    SMS_STS_TORQUE_ENABLE,
-    SMS_STS_MODE,
-    SMS_STS_PRESENT_POSITION_L,
-    SMS_STS_PRESENT_SPEED_L,
-    SMS_STS_PRESENT_CURRENT_L,
-    SMS_STS_PRESENT_TEMPERATURE,
-    SMS_STS_MOVING,
-    SMS_STS_ACC,
-    SMS_STS_GOAL_POSITION_L,
-    SMS_STS_GOAL_TIME_L,
-    SMS_STS_GOAL_SPEED_L,
-    SMS_STS_ID,
-    SMS_STS_BAUD_RATE,
 )
 
 # Map host-facing baud rates to the firmware's register code.

@@ -7,8 +7,8 @@ Three rounds of tension+calibration with a 1-minute motion test in between.
 import argparse
 import time
 
-from orca_core.utils.cli import connect_hand, create_hand, shutdown_hand
-from orca_core.constants import NUM_STEPS, STEP_SIZE
+from src.orca_core.orca_core.utils.cli import connect_hand, create_hand, shutdown_hand
+from src.orca_core.orca_core.constants import NUM_STEPS, STEP_SIZE
 
 
 DIVIDER = "=" * 60

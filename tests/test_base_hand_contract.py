@@ -4,8 +4,8 @@ import numpy as np
 import pytest
 import yaml
 
-from orca_core import BaseHand
-from orca_core.joint_position import OrcaJointPositions
+from src.orca_core.orca_core import BaseHand
+from src.orca_core.orca_core.joint_position import OrcaJointPositions
 
 
 class DummyHand(BaseHand):

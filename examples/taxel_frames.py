@@ -19,7 +19,7 @@ from pathlib import Path
 
 import numpy as np
 
-from orca_core import MockOrcaHandTouch, OrcaHandTouch, frames
+from src.orca_core.orca_core import MockOrcaHandTouch, OrcaHandTouch, frames
 
 DEFAULT_CONFIG = (
     Path(__file__).resolve().parents[1]
@@ -31,9 +31,9 @@ MOCK_POSE = {"wrist": -10.0, "index_mcp": 30.0, "index_pip": 20.0, "thumb_cmc": 
 
 def _make_mock_feeder(hand):
     """Return a feeder that pushes synthetic taxel frames into the mock link."""
-    from orca_core.constants import FINGER_NAMES
-    from orca_core.hardware.sensing.constants import DEFAULT_TAXEL_COUNTS
-    from orca_core.hardware.sensing.tactile_mock import feed_taxels_frame
+    from src.orca_core.orca_core.constants import FINGER_NAMES
+    from src.orca_core.orca_core.hardware.sensing.constants import DEFAULT_TAXEL_COUNTS
+    from src.orca_core.orca_core.hardware.sensing.tactile_mock import feed_taxels_frame
 
     # Slot-id order matches the wire-frame order the parser expects.
     active = sorted(FINGER_NAMES, key=lambda f: hand.config.finger_to_sensor_id[f])

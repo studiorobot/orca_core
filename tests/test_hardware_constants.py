@@ -7,8 +7,8 @@ this file is the only place their values are stated independently. Update a
 literal here only alongside a hardware change, never to make a test pass.
 """
 
-from orca_core.hardware.feetech_client import POSITION_DIRECTION
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.feetech_client import POSITION_DIRECTION
+from src.orca_core.orca_core.hardware.sensing.constants import (
     ENCODER_SLOT_TO_JOINT,
     JOINT_ENCODER_POLARITY,
     JOINT_ENCODER_POLARITY_BY_SIDE,

@@ -12,11 +12,11 @@ from typing import Optional
 
 import numpy as np
 
-from orca_core.calibration import JointEncoderCal
-from orca_core.hardware.sensing.constants import AUTO_ENC_NUM_JOINTS
-from orca_core import MockOrcaHandJointFeedback
+from src.orca_core.orca_core.calibration import JointEncoderCal
+from src.orca_core.orca_core.hardware.sensing.constants import AUTO_ENC_NUM_JOINTS
+from src.orca_core.orca_core import MockOrcaHandJointFeedback
 
-from tests._encoder_helpers import make_encoder_frame
+from src.orca_core.tests._encoder_helpers import make_encoder_frame
 
 
 def make_calibrated_joint_feedback_hand(

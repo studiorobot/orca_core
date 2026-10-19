@@ -7,7 +7,7 @@ import threading
 import numpy as np
 import pytest
 
-from orca_core.control import JointController
+from src.orca_core.orca_core.control import JointController
 
 
 def _make(

@@ -26,7 +26,7 @@ from dataclasses import dataclass, field
 
 import serial
 
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_FRAME_META_SIZE,
     LINK_DEFAULT_BAUDRATE,
     LINK_DEFAULT_RESPONSE_TIMEOUT_S,
@@ -40,7 +40,7 @@ from orca_core.hardware.sensing.constants import (
     PROTOCOL_HEADER_RESPONSE,
     RESPONSE_META_SIZE,
 )
-from orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
 
 logger = logging.getLogger(__name__)
 FrameHandler = Callable[[bytes], None]

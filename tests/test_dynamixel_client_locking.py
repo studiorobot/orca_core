@@ -14,7 +14,7 @@ import types
 import numpy as np
 import pytest
 
-from orca_core.hardware.dynamixel_client import DynamixelClient
+from src.orca_core.orca_core.hardware.dynamixel_client import DynamixelClient
 
 COMM_SUCCESS = 0
 COMM_RX_FAIL = -3001
@@ -220,7 +220,7 @@ def client(bus, monkeypatch, request):
 
 
 def _patch_sleep(monkeypatch):
-    import orca_core.hardware.dynamixel_client as dxl_mod
+    import src.orca_core.orca_core.hardware.dynamixel_client as dxl_mod
     sleeps = []
     monkeypatch.setattr(dxl_mod.time, 'sleep', lambda s: sleeps.append(s))
     return sleeps

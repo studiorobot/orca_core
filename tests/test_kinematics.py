@@ -3,7 +3,9 @@
 import numpy as np
 import pytest
 
-from orca_core.kinematics import FINGERS, HandKinematics, Transform, frames, rotation_about_axis
+from src.orca_core.orca_core.kinematics import frames
+
+from src.orca_core.orca_core.kinematics import FINGERS, HandKinematics, Transform, rotation_about_axis
 
 RIGHT = HandKinematics.load("right")
 LEFT = HandKinematics.load("left")
@@ -146,7 +148,7 @@ class TestPackagedKinematics:
         base_tips = RIGHT.fingertip_poses(BENT_POSE, in_frame=frames.BASE)
         palm_tips = RIGHT.fingertip_poses(BENT_POSE, in_frame=frames.PALM)
         wrist_chain = Transform.identity()
-        from orca_core.kinematics.hand_kinematics import _joint_transform
+        from src.orca_core.orca_core.kinematics.hand_kinematics import _joint_transform
 
         for entry in RIGHT._chains["base_chain"]:
             wrist_chain = wrist_chain @ _joint_transform(entry, BENT_POSE)

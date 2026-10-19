@@ -8,8 +8,8 @@ the bases or moves a seam.
 
 import pytest
 
-import orca_core
-from orca_core import (
+import src.orca_core.orca_core as orca_core
+from src.orca_core.orca_core import (
     MockOrcaHand,
     MockOrcaHandFull,
     MockOrcaHandJointFeedback,
@@ -19,8 +19,8 @@ from orca_core import (
     OrcaHandJointFeedback,
     OrcaHandTouch,
 )
-from orca_core.base_hand import BaseHand
-from orca_core.hardware_hand import MockMotorResolutionMixin
+from src.orca_core.orca_core.base_hand import BaseHand
+from src.orca_core.orca_core.hardware_hand import MockMotorResolutionMixin
 
 
 def test_full_hand_mro_orders_capabilities_before_bases():

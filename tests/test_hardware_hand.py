@@ -5,10 +5,10 @@ import shutil
 
 import numpy as np
 import pytest
-from orca_core import MockOrcaHand, OrcaHand
-from orca_core.calibration import JointEncoderCal
-from orca_core.hardware.sensing.constants import AUTO_ENC_NUM_JOINTS
-from orca_core.utils import read_yaml
+from src.orca_core.orca_core import MockOrcaHand, OrcaHand
+from src.orca_core.orca_core.calibration import JointEncoderCal
+from src.orca_core.orca_core.hardware.sensing.constants import AUTO_ENC_NUM_JOINTS
+from src.orca_core.orca_core.utils import read_yaml
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_DIR = os.path.join(REPO_ROOT, "orca_core", "models", "v2", "orcahand-right")

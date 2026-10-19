@@ -10,8 +10,8 @@ import contextlib
 
 import pytest
 
-from orca_core.constants import DYNAMIXEL, FEETECH
-from orca_core.maintenance import motor_chain as mc
+from src.orca_core.orca_core.constants import DYNAMIXEL, FEETECH
+from src.orca_core.orca_core.maintenance import motor_chain as mc
 
 
 DYNA_CFG = {
@@ -68,8 +68,8 @@ class FakeBus:
 
 
 def test_plan_reads_factory_defaults_from_the_motor_client():
-    from orca_core.hardware.dynamixel_client import DynamixelClient
-    from orca_core.hardware.feetech_client import FeetechClient
+    from src.orca_core.orca_core.hardware.dynamixel_client import DynamixelClient
+    from src.orca_core.orca_core.hardware.feetech_client import FeetechClient
 
     plan = dyna_plan()
     assert plan.default_id == DynamixelClient.factory_default_id
@@ -82,7 +82,7 @@ def test_plan_reads_factory_defaults_from_the_motor_client():
 
 
 def test_valid_baudrates_come_from_the_client_baud_map():
-    from orca_core.hardware.dynamixel_client import BAUD_RATE_MAP
+    from src.orca_core.orca_core.hardware.dynamixel_client import BAUD_RATE_MAP
 
     assert mc.valid_baudrates(DYNAMIXEL) == sorted(BAUD_RATE_MAP, reverse=True)
 
@@ -438,7 +438,7 @@ def test_scan_polling_does_not_accumulate_clients(stub_clients):
 
 
 def test_scan_motors_leaves_the_real_dynamixel_registry_unchanged():
-    from orca_core.hardware.dynamixel_client import DynamixelClient
+    from src.orca_core.orca_core.hardware.dynamixel_client import DynamixelClient
 
     before = set(DynamixelClient.OPEN_CLIENTS)
     mc.scan_motors(DYNAMIXEL, "/dev/nonexistent-orca-chain-test", 57600, (1, 1))

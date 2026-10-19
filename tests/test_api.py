@@ -11,9 +11,9 @@ pytest.importorskip("httpx", reason="fastapi.testclient requires httpx")
 
 from fastapi.testclient import TestClient
 
-import orca_core
-from orca_core import MockOrcaHand, OrcaHand
-import orca_core.api.api as api
+import src.orca_core.orca_core as orca_core
+from src.orca_core.orca_core import MockOrcaHand, OrcaHand
+import src.orca_core.orca_core.api.api as api
 
 
 @pytest.fixture(scope="module")

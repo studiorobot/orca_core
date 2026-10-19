@@ -25,14 +25,14 @@ from typing import Protocol
 
 import numpy as np
 
-from orca_core.hardware.hand_serial_link import HandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.hand_serial_link import HandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     ENCODER_COUNTS_PER_REV,
     ENCODER_FIRST_FRAME_TIMEOUT_S,
     PROTOCOL_BYTE_AUTO_ENC,
 )
-from orca_core.hardware.sensing.encoder_protocol import parse_encoder_frame
-from orca_core.hardware.sensing.types import EncoderReading
+from src.orca_core.orca_core.hardware.sensing.encoder_protocol import parse_encoder_frame
+from src.orca_core.orca_core.hardware.sensing.types import EncoderReading
 
 logger = logging.getLogger(__name__)
 

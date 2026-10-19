@@ -4,8 +4,8 @@ The poses themselves ship with orca_core
 (:func:`orca_core.demo_poses.load_demo_poses`)
 """
 
-from orca_core.constants import NUM_STEPS, STEP_SIZE
-from orca_core.demo_poses import load_demo_poses
+from src.orca_core.orca_core.constants import NUM_STEPS, STEP_SIZE
+from src.orca_core.orca_core.demo_poses import load_demo_poses
 
 
 def run_demo(

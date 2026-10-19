@@ -2,8 +2,8 @@
 
 import pytest
 
-from orca_core.demo_poses import DemoPoseError, DemoPoses, load_demo_poses
-from orca_core import MockOrcaHand
+from src.orca_core.orca_core.demo_poses import DemoPoseError, DemoPoses, load_demo_poses
+from src.orca_core.orca_core import MockOrcaHand
 
 
 def test_packaged_demos_load():
@@ -44,7 +44,7 @@ def test_poses_resolve_against_a_real_hand_config(mock_config_dir):
 
 
 def test_malformed_demo_data_raises(tmp_path, monkeypatch):
-    import orca_core.demo_poses as module
+    import src.orca_core.orca_core.demo_poses as module
 
     (tmp_path / "demo_poses.yaml").write_text(
         "broken:\n  sequence: [missing_pose]\n  poses:\n    real_pose: {wrist: 0.5}\n"

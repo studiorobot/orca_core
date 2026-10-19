@@ -8,14 +8,16 @@ from types import SimpleNamespace
 
 import pytest
 
-from orca_core.constants import KNOWN_VIDS
-from orca_core import OrcaHand
-from orca_core.utils.utils import (
+from src.orca_core.orca_core.constants import KNOWN_VIDS
+from src.orca_core.orca_core import OrcaHand
+from src.orca_core.orca_core.utils.utils import (
     find_single_usb_serial_port,
     motor_type_for_port,
 )
 
-from tests._helpers import fake_serial_port
+from src.orca_core.tests._helpers import fake_serial_port
+
+from src.orca_core.orca_core.hardware import dynamixel_client
 
 DYNAMIXEL_VID = KNOWN_VIDS["dynamixel"][0]
 FEETECH_VID = KNOWN_VIDS["feetech"][0]
@@ -67,7 +69,7 @@ def _clear_driver(hand):
 
 
 def test_trial_probe_finds_feetech(mock_hand, monkeypatch):
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     _clear_driver(mock_hand)
     monkeypatch.setattr(
@@ -91,7 +93,7 @@ def test_trial_probe_finds_dynamixel_at_3M(mock_hand, monkeypatch):
         seen.append(baudrate)
         return baudrate == 3_000_000
 
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     _clear_driver(mock_hand)
     monkeypatch.setattr(
@@ -107,7 +109,7 @@ def test_trial_probe_finds_dynamixel_at_3M(mock_hand, monkeypatch):
 
 
 def test_trial_probe_returns_none_when_nothing_responds(mock_hand, monkeypatch):
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     _clear_driver(mock_hand)
     monkeypatch.setattr(
@@ -129,7 +131,7 @@ def test_trial_probe_honours_pinned_motor_type(mock_hand, monkeypatch):
         seen_types.add("feetech")
         return False
 
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     monkeypatch.setattr(
         dynamixel_client.DynamixelClient, "probe", staticmethod(lambda *a, **k: False)
@@ -151,7 +153,7 @@ def test_trial_probe_honours_pinned_baudrate(mock_hand, monkeypatch):
         seen.append(baudrate)
         return False
 
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     monkeypatch.setattr(
         dynamixel_client.DynamixelClient, "probe", staticmethod(fake_probe)
@@ -165,7 +167,7 @@ def test_trial_probe_honours_pinned_baudrate(mock_hand, monkeypatch):
 
 def test_resolve_motor_driver_verifies_pinned_combination(mock_hand, monkeypatch):
     """Pinned motor_type+baudrate still probe the bus, so a dead bus fails."""
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     mock_hand.config = dataclasses.replace(
         mock_hand.config, motor_type="dynamixel", baudrate=1_000_000
@@ -192,15 +194,15 @@ def test_resolved_driver_persisted_to_yaml(mock_config_dir, monkeypatch):
     """A successful auto-probe writes motor_type/baudrate back to config.yaml."""
     import yaml
 
-    from orca_core import MockOrcaHand
-    from orca_core.utils.utils import read_yaml
+    from src.orca_core.orca_core import MockOrcaHand
+    from src.orca_core.orca_core.utils.utils import read_yaml
 
     class ProbedMockOrcaHand(MockOrcaHand):
         # Undo the mock's synthetic resolution so the real probe path runs.
         _resolve_motor_driver = OrcaHand._resolve_motor_driver
         _persist_resolved_driver = OrcaHand._persist_resolved_driver
 
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     monkeypatch.setattr(
         dynamixel_client.DynamixelClient,
@@ -234,14 +236,14 @@ def test_persist_write_failure_does_not_fail_connect(
     failed connect: the probe simply runs again next time."""
     import yaml
 
-    from orca_core import MockOrcaHand
-    from orca_core.utils.utils import read_yaml
+    from src.orca_core.orca_core import MockOrcaHand
+    from src.orca_core.orca_core.utils.utils import read_yaml
 
     class ProbedMockOrcaHand(MockOrcaHand):
         _resolve_motor_driver = OrcaHand._resolve_motor_driver
         _persist_resolved_driver = OrcaHand._persist_resolved_driver
 
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     monkeypatch.setattr(
         dynamixel_client.DynamixelClient,
@@ -283,7 +285,7 @@ def test_persist_writes_all_keys_in_one_atomic_update(tmp_path, monkeypatch):
     survive the rewrite."""
     import yaml
 
-    from orca_core.hardware import motor_resolution
+    from src.orca_core.orca_core.hardware import motor_resolution
 
     config_path = tmp_path / "config.yaml"
     config_path.write_text(
@@ -318,7 +320,7 @@ def test_persist_writes_all_keys_in_one_atomic_update(tmp_path, monkeypatch):
 
 def test_trial_probe_reports_via_logging_not_stdout(
         mock_hand, monkeypatch, capsys, caplog):
-    from orca_core.hardware import dynamixel_client, feetech_client
+    from src.orca_core.orca_core.hardware import feetech_client
 
     _clear_driver(mock_hand)
     monkeypatch.setattr(
@@ -338,7 +340,7 @@ def test_trial_probe_reports_via_logging_not_stdout(
 def test_non_interactive_connect_skips_port_picker(mock_hand, monkeypatch):
     """connect(interactive=False) must fail cleanly instead of opening the
     terminal port picker when every port attempt fails."""
-    import orca_core.hardware_hand as hardware_hand
+    import src.orca_core.orca_core.hardware_hand as hardware_hand
 
     def fail_connect(self, port, base_config=None):
         raise ConnectionError("no motor responded")
@@ -361,7 +363,7 @@ def test_non_interactive_connect_skips_port_picker(mock_hand, monkeypatch):
 def test_failed_connect_restores_config(mock_hand, monkeypatch):
     """A failed connect() must not leave probed driver values in the config,
     so the next connect() re-probes and can still persist to yaml."""
-    import orca_core.hardware_hand as hardware_hand
+    import src.orca_core.orca_core.hardware_hand as hardware_hand
 
     _clear_driver(mock_hand)
     original_port = mock_hand.config.port

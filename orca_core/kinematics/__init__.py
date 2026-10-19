@@ -7,8 +7,8 @@
 # ==============================================================================
 """Rigid transforms, frames, and forward kinematics for the ORCA hand."""
 
-from orca_core.kinematics import frames
-from orca_core.kinematics.hand_kinematics import FINGERS, HandKinematics
-from orca_core.kinematics.transforms import Transform, rotation_about_axis
+from src.orca_core.orca_core.kinematics import frames
+from src.orca_core.orca_core.kinematics.hand_kinematics import FINGERS, HandKinematics
+from src.orca_core.orca_core.kinematics.transforms import Transform, rotation_about_axis
 
 __all__ = ["FINGERS", "HandKinematics", "Transform", "frames", "rotation_about_axis"]

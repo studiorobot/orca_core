@@ -8,14 +8,14 @@ import time
 import numpy as np
 import pytest
 
-from orca_core.hardware.joint_encoder_client import (
+from src.orca_core.orca_core.hardware.joint_encoder_client import (
     JointEncoderCalibrationError,
     average_anchor_count,
     sample_anchor_count_from_client,
 )
-from orca_core.hardware.sensing.constants import ENCODER_COUNTS_PER_REV
+from src.orca_core.orca_core.hardware.sensing.constants import ENCODER_COUNTS_PER_REV
 
-from tests._encoder_helpers import feed_encoder_frame
+from src.orca_core.tests._encoder_helpers import feed_encoder_frame
 
 
 # ---------------------------------------------------------------------------

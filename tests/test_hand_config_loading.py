@@ -6,7 +6,7 @@ import shutil
 import pytest
 import yaml
 
-from orca_core.hand_config import (
+from src.orca_core.orca_core.hand_config import (
     HandConfigValidationError,
     OrcaHandConfig,
     OrcaHandTouchConfig,
@@ -56,7 +56,7 @@ def test_sensors_baudrate_int_loads_as_int(tmp_path):
 
 
 def test_write_yaml_atomic_exported_from_utils():
-    from orca_core.utils import write_yaml_atomic
-    from orca_core.utils.utils import write_yaml_atomic as impl
+    from src.orca_core.orca_core.utils import write_yaml_atomic
+    from src.orca_core.orca_core.utils.utils import write_yaml_atomic as impl
 
     assert write_yaml_atomic is impl

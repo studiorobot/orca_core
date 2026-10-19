@@ -3,20 +3,20 @@
 import numpy as np
 import pytest
 
-from orca_core.constants import FINGER_NAMES
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.constants import DEFAULT_TAXEL_COUNTS
-from orca_core.hardware.sensing.taxel_geometry import (
+from src.orca_core.orca_core.constants import FINGER_NAMES
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import DEFAULT_TAXEL_COUNTS
+from src.orca_core.orca_core.hardware.sensing.taxel_geometry import (
     SENSOR_FRAME,
     load_all_taxel_geometry,
     load_taxel_geometry,
 )
-from orca_core.hardware.sensing.tactile_mock import (
+from src.orca_core.orca_core.hardware.sensing.tactile_mock import (
     TactileMockState,
     feed_taxels_frame,
     install_tactile_mock,
 )
-from orca_core.hardware.tactile_client import TactileClient
+from src.orca_core.orca_core.hardware.tactile_client import TactileClient
 
 
 def _make_client(connected_fingers=None):

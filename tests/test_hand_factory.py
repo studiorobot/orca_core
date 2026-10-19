@@ -12,14 +12,14 @@ import shutil
 
 import pytest
 
-from orca_core import load_hand
-from orca_core.hand_config import HandConfigValidationError, OrcaHandConfig
-from orca_core import MockOrcaHand, MockOrcaHandTouch
-from orca_core.hardware_hand_sensing import (
+from src.orca_core.orca_core import load_hand
+from src.orca_core.orca_core.hand_config import HandConfigValidationError, OrcaHandConfig
+from src.orca_core.orca_core import MockOrcaHand, MockOrcaHandTouch
+from src.orca_core.orca_core.hardware_hand_sensing import (
     MockOrcaHandFull,
     MockOrcaHandJointFeedback,
 )
-from orca_core.utils import update_yaml
+from src.orca_core.orca_core.utils import update_yaml
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODELS_DIR = os.path.join(REPO_ROOT, "orca_core", "models", "v2")

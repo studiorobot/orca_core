@@ -3,9 +3,9 @@
 import argparse
 import time
 
-from orca_core.utils.cli import add_hand_arguments, connect_hand, create_hand, shutdown_hand
+from src.orca_core.orca_core.utils.cli import add_hand_arguments, connect_hand, create_hand, shutdown_hand
 
-from orca_core.constants import NUM_STEPS, STEP_SIZE
+from src.orca_core.orca_core.constants import NUM_STEPS, STEP_SIZE
 
 
 MAX_TEMP = 70  # °C — conservative across Dynamixel XC330/430 and Feetech STS3215

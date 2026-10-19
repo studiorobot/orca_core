@@ -10,22 +10,22 @@ import time
 
 import pytest
 
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     ADDR_AUTO_ENABLE,
     DEFAULT_TAXEL_COUNTS,
     REGISTER_DISABLE,
     TACTILE_REGISTER_ATTEMPTS,
 )
-from orca_core.hardware.sensing.tactile_mock import (
+from src.orca_core.orca_core.hardware.sensing.tactile_mock import (
     feed_combined_frame,
     feed_resultant_frame,
     feed_taxels_frame,
 )
-from orca_core.hardware.sensing.tactile_protocol import compute_distal_module_index
-from orca_core.hardware.tactile_client import TactileClient, TactileSensorConfiguration
+from src.orca_core.orca_core.hardware.sensing.tactile_protocol import compute_distal_module_index
+from src.orca_core.orca_core.hardware.tactile_client import TactileClient, TactileSensorConfiguration
 
-from tests._helpers import wait_until
+from src.orca_core.tests._helpers import wait_until
 
 ALL_FINGERS = ["thumb", "index", "middle", "ring", "pinky"]
 

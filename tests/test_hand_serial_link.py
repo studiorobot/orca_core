@@ -10,9 +10,9 @@ import threading
 import numpy as np
 import pytest
 
-from orca_core.hardware.hand_serial_link import HandSerialLink
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.hand_serial_link import HandSerialLink
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_NUM_JOINTS,
     FUNC_CODE_READ,
     PROTOCOL_BYTE_AUTO,
@@ -23,9 +23,9 @@ from orca_core.hardware.sensing.constants import (
     PROTOCOL_HEADER_RESPONSE,
     PROTOCOL_RESERVED,
 )
-from orca_core.hardware.sensing.framing import calculate_checksum
-from orca_core.hardware.sensing.tactile_protocol import build_read_request
-from tests._helpers import wait_until
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.tactile_protocol import build_read_request
+from src.orca_core.tests._helpers import wait_until
 
 
 # ---------------------------------------------------------------------------

@@ -9,9 +9,9 @@ import numpy as np
 import pytest
 import yaml
 
-from orca_core import MockOrcaHand
-from orca_core.maintenance import calibration_routine
-from orca_core.utils.utils import read_yaml, write_yaml_atomic
+from src.orca_core.orca_core import MockOrcaHand
+from src.orca_core.orca_core.maintenance import calibration_routine
+from src.orca_core.orca_core.utils.utils import read_yaml, write_yaml_atomic
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_DIR = os.path.join(REPO_ROOT, "orca_core", "models", "v2", "orcahand-right")

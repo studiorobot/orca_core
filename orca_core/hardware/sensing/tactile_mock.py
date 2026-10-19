@@ -12,9 +12,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from orca_core.constants import FINGER_NAMES
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.constants import FINGER_NAMES
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     ADDR_AUTO_DATA_TYPE,
     ADDR_AUTO_ENABLE,
     ADDR_CONNECTED_SENSORS_LENGTH,
@@ -34,9 +34,9 @@ from orca_core.hardware.sensing.constants import (
     SLOT_CONNECTED_BIT_POSITIONS,
     SLOT_DISTAL_TAXEL_REGISTER_OFFSETS,
 )
-from orca_core.hardware.sensing.framing import calculate_checksum
-from orca_core.hardware.sensing.types import ResultantForces, TaxelForces
-from orca_core.hardware.sensing.tactile_protocol import (
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.types import ResultantForces, TaxelForces
+from src.orca_core.orca_core.hardware.sensing.tactile_protocol import (
     _pack_resultant_for_mock,
     compute_distal_module_index,
     encode_combined_auto_for_mock,

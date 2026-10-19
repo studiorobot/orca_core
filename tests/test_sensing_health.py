@@ -11,13 +11,13 @@ from collections import Counter
 
 import numpy as np
 
-from orca_core.hardware.hand_serial_link import LinkStats
-from orca_core.hardware.joint_encoder_client import EncoderStreamStats
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.hand_serial_link import LinkStats
+from src.orca_core.orca_core.hardware.joint_encoder_client import EncoderStreamStats
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_ANGLE_MASK,
     AUTO_ENC_NUM_JOINTS,
 )
-from orca_core.hardware.sensing.health import (
+from src.orca_core.orca_core.hardware.sensing.health import (
     LINK_CAUSE_NO_BYTES,
     LINK_CAUSE_NO_FRAME_ALIGNMENT,
     LINK_CAUSE_UNROUTED_FRAMES,
@@ -26,7 +26,7 @@ from orca_core.hardware.sensing.health import (
     detect_wiring_mismatch,
     diagnose_encoder_link,
 )
-from orca_core.hardware.sensing.types import EncoderReading
+from src.orca_core.orca_core.hardware.sensing.types import EncoderReading
 
 MID_ANGLE = 0x2000
 

@@ -11,9 +11,9 @@ import threading
 import time
 import logging
 
-from orca_core.constants import FINGER_NAMES
-from orca_core.hardware.hand_serial_link import HandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.constants import FINGER_NAMES
+from src.orca_core.orca_core.hardware.hand_serial_link import HandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     DEFAULT_FINGER_TO_SENSOR_ID,
     PROTOCOL_BYTE_AUTO,
     AUTO_FRAME_META_SIZE,
@@ -38,14 +38,14 @@ from orca_core.hardware.sensing.constants import (
     TACTILE_STREAM_REARM_MIN_INTERVAL_S,
     TACTILE_STREAM_STALE_REARM_S,
 )
-from orca_core.hardware.sensing.taxel_geometry import TaxelGeometry, load_taxel_geometry
-from orca_core.hardware.sensing.types import (
+from src.orca_core.orca_core.hardware.sensing.taxel_geometry import TaxelGeometry, load_taxel_geometry
+from src.orca_core.orca_core.hardware.sensing.types import (
     ResultantForces,
     ResultantReading,
     TactileReading,
     TaxelReading,
 )
-from orca_core.hardware.sensing.tactile_protocol import (
+from src.orca_core.orca_core.hardware.sensing.tactile_protocol import (
     build_read_request,
     build_write_request,
     parse_read_response,

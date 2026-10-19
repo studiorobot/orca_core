@@ -11,13 +11,13 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from orca_core.hardware.hand_serial_link import LinkStats
-from orca_core.hardware.joint_encoder_client import EncoderStreamStats
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.hand_serial_link import LinkStats
+from src.orca_core.orca_core.hardware.joint_encoder_client import EncoderStreamStats
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_ANGLE_MASK,
     AUTO_ENC_NUM_JOINTS,
 )
-from orca_core.hardware.sensing.types import EncoderReading
+from src.orca_core.orca_core.hardware.sensing.types import EncoderReading
 
 DEFAULT_RAIL_EDGE_LSB = 64
 """Angles within this many counts of either 14-bit rail count as "at a rail"."""

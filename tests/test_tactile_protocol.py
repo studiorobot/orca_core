@@ -4,8 +4,8 @@ import struct
 
 import pytest
 
-from orca_core.hardware.sensing.framing import calculate_checksum
-from orca_core.hardware.sensing.tactile_protocol import (
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.tactile_protocol import (
     validate_auto_frame_lrc,
     read_response_body_size,
     build_read_request,
@@ -29,7 +29,7 @@ from orca_core.hardware.sensing.tactile_protocol import (
     encode_combined_auto_for_mock,
     encode_resultant_auto_for_mock,
 )
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.constants import (
     ADDR_NUM_TAXELS_LENGTH,
     ADDR_NUM_TAXELS_START,
     DEFAULT_TAXEL_COUNTS,

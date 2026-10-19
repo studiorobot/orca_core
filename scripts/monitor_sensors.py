@@ -25,18 +25,18 @@ import time
 import tkinter as tk
 from tkinter import ttk
 
-from orca_core.constants import FINGER_NAMES
-from orca_core.hardware.hand_serial_link import HandSerialLink
-from orca_core.hardware.tactile_client import TactileClient, NoSensorsAvailableError
-from orca_core.hardware.joint_encoder_client import (
+from src.orca_core.orca_core.constants import FINGER_NAMES
+from src.orca_core.orca_core.hardware.hand_serial_link import HandSerialLink
+from src.orca_core.orca_core.hardware.tactile_client import TactileClient, NoSensorsAvailableError
+from src.orca_core.orca_core.hardware.joint_encoder_client import (
     JointEncoderClient,
     EncodersNotAvailableError,
 )
-from orca_core.hardware.sensing.serial_discovery import (
+from src.orca_core.orca_core.hardware.sensing.serial_discovery import (
     baud_for_port,
     discover_sensing_ports,
 )
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.constants import (
     ENCODER_SLOT_TO_JOINT,
     ENCODER_LSB_DEG,
     AUTO_ENC_ANGLE_MASK,

@@ -5,13 +5,13 @@ import os
 import numpy as np
 import pytest
 
-import orca_core
-from orca_core import MockOrcaHandTouch, Transform, frames
-from orca_core.constants import FINGER_NAMES
-from orca_core.hardware.sensing.constants import DEFAULT_TAXEL_COUNTS
-from orca_core.hardware.sensing.tactile_mock import feed_taxels_frame
+import src.orca_core.orca_core as orca_core
+from src.orca_core.orca_core import MockOrcaHandTouch, Transform, frames
+from src.orca_core.orca_core.constants import FINGER_NAMES
+from src.orca_core.orca_core.hardware.sensing.constants import DEFAULT_TAXEL_COUNTS
+from src.orca_core.orca_core.hardware.sensing.tactile_mock import feed_taxels_frame
 
-from tests._helpers import wait_until
+from src.orca_core.tests._helpers import wait_until
 
 CONFIG_V2_TOUCH = os.path.join(
     os.path.dirname(orca_core.__file__), "models", "v2", "orcahand-touch-right", "config.yaml"

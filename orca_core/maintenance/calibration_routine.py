@@ -346,6 +346,7 @@ def _drive_calibration(
     motors_with_final_offset = set()
 
     calibrated_joints: dict = {}
+    all_calibrated_joints: dict = {}
 
     hand.set_control_mode(CURRENT_BASED_POSITION)
     hand.set_max_current(hand.config.calibration_current)
@@ -598,6 +599,7 @@ def _drive_calibration(
                 ratio=joint_to_motor_ratios[motor_id],
             )
             calibrated_joints[joint] = 0.0
+            all_calibrated_joints[joint] = 0.0
 
         if WRIST in calibrated_joints:
             wrist_calibrated = True
@@ -640,9 +642,9 @@ def _drive_calibration(
             include_encoder=encoder_pass_active,
         )
 
-    if calibrated_joints:
+    if all_calibrated_joints:
         hand.set_joint_positions(
-            calibrated_joints, num_steps=NUM_STEPS, step_size=STEP_SIZE
+            all_calibrated_joints, num_steps=NUM_STEPS, step_size=STEP_SIZE
         )
 
     hand.set_max_current(hand.config.max_current)

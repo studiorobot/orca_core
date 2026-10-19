@@ -31,8 +31,8 @@ from dataclasses import dataclass
 import numpy as np
 import yaml
 
-from orca_core.constants import FingerName
-from orca_core.hardware.sensing.constants import FINGER_MODELS
+from src.orca_core.orca_core.constants import FingerName
+from src.orca_core.orca_core.hardware.sensing.constants import FINGER_MODELS
 
 MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")
 

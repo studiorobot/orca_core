@@ -10,8 +10,8 @@
 from argparse import ArgumentParser
 from pathlib import Path
 
-from orca_core import OrcaHand
-from orca_core import MockOrcaHand
+from src.orca_core.orca_core import OrcaHand
+from src.orca_core.orca_core import MockOrcaHand
 
 
 

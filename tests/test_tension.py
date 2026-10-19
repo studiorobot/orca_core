@@ -72,10 +72,10 @@ def test_tension_emits_phase_events(connected_mock_hand):
 def test_run_tension_exception_restores_hand_state(tmp_path):
     """An exception mid-winding must disable torque and restore the configured
     control mode and current limit, not leave the hand straining."""
-    import orca_core
-    from orca_core import MockOrcaHand
-    from orca_core.maintenance.tensioning import run_tension
-    from orca_core.utils import update_yaml
+    import src.orca_core.orca_core as orca_core
+    from src.orca_core.orca_core import MockOrcaHand
+    from src.orca_core.orca_core.maintenance.tensioning import run_tension
+    from src.orca_core.orca_core.utils import update_yaml
 
     model_config = os.path.join(
         os.path.dirname(orca_core.__file__),
@@ -114,7 +114,7 @@ def test_run_tension_exception_restores_hand_state(tmp_path):
 def test_run_tension_holding_prints_nothing(connected_mock_hand, capsys):
     """Operator guidance is the CLI's job; the packaged routine must not print
     terminal-only instructions like the Ctrl+C hint."""
-    from orca_core.maintenance.tensioning import run_tension
+    from src.orca_core.orca_core.maintenance.tensioning import run_tension
 
     capsys.readouterr()
     run_tension(connected_mock_hand, move_motors=False, should_stop=lambda: True)

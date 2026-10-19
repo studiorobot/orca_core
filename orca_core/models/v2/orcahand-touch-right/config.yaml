@@ -1,4 +1,4 @@
-motor_type: dynamixel
+motor_type: feetech
 port: auto
 baudrate: 1000000
 max_current: 300
@@ -206,8 +206,8 @@ sensors:
   # only to force a specific rate.
   # Fixed production wiring: connector N carries finger N (slot = connector - 1).
   finger_to_sensor_id:
-    thumb: 0
-    index: 1
-    middle: 2
-    ring: 3
+    thumb: 1
+    index: 3
+    middle: 0
+    ring: 2
     pinky: 4

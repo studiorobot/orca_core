@@ -33,13 +33,13 @@ import sys
 import threading
 import time
 
-from orca_core import OrcaHandTouch, load_hand
-from orca_core.hardware.hand_serial_link import HandSerialLink
-from orca_core.hardware.joint_encoder_client import (
+from src.orca_core.orca_core import OrcaHandTouch, load_hand
+from src.orca_core.orca_core.hardware.hand_serial_link import HandSerialLink
+from src.orca_core.orca_core.hardware.joint_encoder_client import (
     EncodersNotAvailableError,
     JointEncoderClient,
 )
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_NUM_JOINTS,
     ENCODER_SLOT_TO_JOINT,
     EXPECTED_ENCODER_SLOTS,
@@ -48,13 +48,13 @@ from orca_core.hardware.sensing.constants import (
     PROTOCOL_BYTE_AUTO,
     PROTOCOL_BYTE_AUTO_ENC,
 )
-from orca_core.hardware.sensing.health import (
+from src.orca_core.orca_core.hardware.sensing.health import (
     EncoderStreamHealth,
     WiringMismatch,
     detect_wiring_mismatch,
     diagnose_encoder_link,
 )
-from orca_core.hardware.sensing.serial_discovery import resolve_sensing_ports
+from src.orca_core.orca_core.hardware.sensing.serial_discovery import resolve_sensing_ports
 
 # Thresholds and taxel layouts are intentionally script-local — they only
 # drive pass/fail decisions and the ASCII renderer here, not the runtime API.

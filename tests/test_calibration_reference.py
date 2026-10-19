@@ -12,8 +12,8 @@ import tempfile
 import pytest
 import yaml
 
-from orca_core import MockOrcaHand
-from orca_core.utils import read_yaml
+from src.orca_core.orca_core import MockOrcaHand
+from src.orca_core.orca_core.utils import read_yaml
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_DIR = os.path.join(REPO_ROOT, "orca_core", "models", "v2", "orcahand-right")

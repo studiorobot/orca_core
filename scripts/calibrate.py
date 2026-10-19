@@ -2,13 +2,13 @@ import argparse
 import dataclasses
 import sys
 
-from orca_core import MockOrcaHand, OrcaHand, detect_hand
-from orca_core.hardware.hand_serial_link import HandSerialLink
-from orca_core.hardware.joint_encoder_client import (
+from src.orca_core.orca_core import MockOrcaHand, OrcaHand, detect_hand
+from src.orca_core.orca_core.hardware.hand_serial_link import HandSerialLink
+from src.orca_core.orca_core.hardware.joint_encoder_client import (
     EncodersNotAvailableError,
     JointEncoderClient,
 )
-from orca_core.hardware.sensing.serial_discovery import resolve_sensing_ports
+from src.orca_core.orca_core.hardware.sensing.serial_discovery import resolve_sensing_ports
 
 
 ENCODER_DISABLED = "disabled"

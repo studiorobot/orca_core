@@ -16,13 +16,13 @@ import numpy as np
 import pytest
 import yaml
 
-from orca_core.calibration import JointEncoderCal
-from orca_core.control import JointLoopThread
-from orca_core.hardware.sensing.constants import AUTO_ENC_NUM_JOINTS
-from orca_core import JointFeedbackConnectError, MockOrcaHandFull
+from src.orca_core.orca_core.calibration import JointEncoderCal
+from src.orca_core.orca_core.control import JointLoopThread
+from src.orca_core.orca_core.hardware.sensing.constants import AUTO_ENC_NUM_JOINTS
+from src.orca_core.orca_core import JointFeedbackConnectError, MockOrcaHandFull
 
-from tests._encoder_helpers import make_encoder_frame
-from tests._helpers import wait_until
+from src.orca_core.tests._encoder_helpers import make_encoder_frame
+from src.orca_core.tests._helpers import wait_until
 
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -146,7 +146,7 @@ def test_full_connect_refuses_left_config(left_full_config):
     """Closed-loop control is unvalidated for left-hand assemblies: connect
     must refuse before opening the motor bus, any link, or the loop — and
     the refusal must name the concrete escape hatches."""
-    from orca_core import JointFeedbackConnectError
+    from src.orca_core.orca_core import JointFeedbackConnectError
 
     hand = make_full_hand(left_full_config)
     with pytest.raises(JointFeedbackConnectError) as excinfo:
@@ -216,7 +216,7 @@ def test_full_failed_motor_connect_preserves_sensors_only_tactile(
     """Sensors-first bring-up: tactile is live via connect_sensors_only()
     while the motors are unpowered. A failing motor connect must report the
     failure without tearing the live tactile session down."""
-    from orca_core.hardware_hand import OrcaHand
+    from src.orca_core.orca_core.hardware_hand import OrcaHand
 
     hand = make_full_hand(full_config)
     ok, _ = hand.connect_sensors_only()

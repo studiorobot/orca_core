@@ -2,9 +2,9 @@
 
 import pytest
 
-import orca_core.hand_factory as hand_factory
-from orca_core import OrcaHand, OrcaHandTouch, detect_hand, load_hand
-from orca_core.hardware.sensing.serial_discovery import OrcaBoardInfo, parse_orca_info
+import src.orca_core.orca_core.hand_factory as hand_factory
+from src.orca_core.orca_core import OrcaHand, OrcaHandTouch, detect_hand, load_hand
+from src.orca_core.orca_core.hardware.sensing.serial_discovery import OrcaBoardInfo, parse_orca_info
 
 
 # ----- identity-line parsing ------------------------------------------------

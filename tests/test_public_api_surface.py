@@ -11,8 +11,8 @@ import inspect
 
 import pytest
 
-import orca_core
-from orca_core import (
+import src.orca_core.orca_core as orca_core
+from src.orca_core.orca_core import (
     BaseHand,
     OrcaHand,
     OrcaHandFull,

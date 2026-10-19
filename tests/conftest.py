@@ -2,17 +2,18 @@ import time
 
 import pytest
 
-from orca_core.hardware.joint_encoder_client import JointEncoderClient
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.joint_encoder_client import JointEncoderClient
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     DEFAULT_FINGER_TO_SENSOR_ID,
     DEFAULT_TAXEL_COUNTS,
 )
-from orca_core.hardware.sensing.tactile_mock import (
+from src.orca_core.orca_core.hardware.sensing.tactile_mock import (
     TactileMockState,
     install_tactile_mock,
 )
-from orca_core.hardware.tactile_client import TactileClient
+from src.orca_core.orca_core.hardware.tactile_client import TactileClient
+from src.orca_core.orca_core.maintenance import calibration_routine
 
 
 class _NoSleepTime:
@@ -33,8 +34,8 @@ def _no_settle_sleeps():
     for real motors. Patching ``time.sleep`` itself would be global and would
     break tests that rely on real delays to open a race window.
     """
-    from orca_core import base_hand
-    from orca_core.maintenance import calibration_routine, tensioning
+    from src.orca_core.orca_core import base_hand
+    from src.orca_core.orca_core.maintenance import tensioning
 
     fake = _NoSleepTime()
     with pytest.MonkeyPatch.context() as mp:
@@ -139,7 +140,7 @@ def mock_config_dir(tmp_path):
     import os
     import shutil
 
-    import orca_core
+    import src.orca_core.orca_core as orca_core
 
     model_config = os.path.join(
         os.path.dirname(orca_core.__file__), "models", "v2", "orcahand-right", "config.yaml"
@@ -152,14 +153,14 @@ def mock_config_dir(tmp_path):
 @pytest.fixture
 def mock_hand(mock_config_dir):
     """Bare MockOrcaHand (not connected) for unit-testing helper methods."""
-    from orca_core import MockOrcaHand
+    from src.orca_core.orca_core import MockOrcaHand
 
     return MockOrcaHand(config_path=str(mock_config_dir / "config.yaml"))
 
 
 @pytest.fixture
 def connected_mock_hand(mock_config_dir):
-    from orca_core import MockOrcaHand
+    from src.orca_core.orca_core import MockOrcaHand
 
     hand = MockOrcaHand(config_path=str(mock_config_dir / "config.yaml"))
     success, msg = hand.connect()

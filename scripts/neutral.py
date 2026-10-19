@@ -1,6 +1,6 @@
 import argparse
 
-from orca_core.utils.cli import add_hand_arguments, connect_hand, create_hand, shutdown_hand
+from src.orca_core.orca_core.utils.cli import add_hand_arguments, connect_hand, create_hand, shutdown_hand
 
 
 def main() -> int:

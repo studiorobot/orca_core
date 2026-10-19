@@ -4,7 +4,7 @@ Pure functions only — no I/O, no state, no threading.
 """
 import numpy as np
 
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_ANGLE_ERROR_BIT,
     AUTO_ENC_ANGLE_MASK,
     AUTO_ENC_EFFECTIVE_LENGTH,
@@ -14,8 +14,8 @@ from orca_core.hardware.sensing.constants import (
     ENCODER_LSB_DEG,
     PROTOCOL_HEADER_AUTO_ENC,
 )
-from orca_core.hardware.sensing.framing import calculate_checksum
-from orca_core.hardware.sensing.types import EncoderReading
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.types import EncoderReading
 
 
 # =========================================================================

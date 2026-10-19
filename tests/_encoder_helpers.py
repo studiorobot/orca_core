@@ -5,16 +5,16 @@ import time
 
 import numpy as np
 
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_NUM_JOINTS,
     ENCODER_COUNTS_PER_REV,
     JOINT_TO_ENCODER_SLOT,
     PROTOCOL_HEADER_AUTO_ENC,
     PROTOCOL_RESERVED,
 )
-from orca_core.hardware.sensing.framing import calculate_checksum
-from orca_core.hardware.sensing.types import EncoderReading
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.types import EncoderReading
 
 
 def make_encoder_frame(

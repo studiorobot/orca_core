@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_ANGLE_ERROR_BIT,
     AUTO_ENC_EFFECTIVE_LENGTH,
     AUTO_ENC_FRAME_SIZE,
@@ -16,13 +16,13 @@ from orca_core.hardware.sensing.constants import (
     PROTOCOL_HEADER_AUTO,
     PROTOCOL_HEADER_AUTO_ENC,
 )
-from orca_core.hardware.sensing.encoder_protocol import (
+from src.orca_core.orca_core.hardware.sensing.encoder_protocol import (
     encoder_to_joint_angle,
     parse_encoder_frame,
 )
-from orca_core.hardware.sensing.types import EncoderReading
+from src.orca_core.orca_core.hardware.sensing.types import EncoderReading
 
-from tests._encoder_helpers import make_encoder_frame
+from src.orca_core.tests._encoder_helpers import make_encoder_frame
 
 
 # Wire layout (built by ``make_encoder_frame``): header(2) + reserved(1) +

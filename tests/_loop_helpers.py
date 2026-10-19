@@ -11,16 +11,16 @@ from typing import Dict
 
 import numpy as np
 
-from orca_core.calibration import JointEncoderCal
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.calibration import JointEncoderCal
+from src.orca_core.orca_core.hardware.sensing.constants import (
     AUTO_ENC_NUM_JOINTS,
     ENCODER_COUNTS_PER_REV,
     ENCODER_LSB_DEG,
     JOINT_ENCODER_POLARITY,
     JOINT_TO_ENCODER_SLOT,
 )
-from orca_core.hardware.sensing.types import EncoderReading
-from orca_core import MockOrcaHand
+from src.orca_core.orca_core.hardware.sensing.types import EncoderReading
+from src.orca_core.orca_core import MockOrcaHand
 
 
 def make_calibrated_hand(config_path: str) -> MockOrcaHand:

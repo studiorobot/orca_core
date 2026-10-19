@@ -15,12 +15,12 @@ from types import SimpleNamespace
 import numpy as np
 import pytest
 
-import orca_core.hardware.feetech_client as feetech_client_module
-from orca_core.hardware.feetech_client import (
+import src.orca_core.orca_core.hardware.feetech_client as feetech_client_module
+from src.orca_core.orca_core.hardware.feetech_client import (
     COMM_SUCCESS,
     FeetechClient,
 )
-from orca_core.hardware.feetech import (
+from src.orca_core.orca_core.hardware.feetech import (
     SMS_STS_MODE,
     SMS_STS_MOVING,
     SMS_STS_PRESENT_CURRENT_L,

@@ -12,12 +12,12 @@ import types
 
 import pytest
 
-import orca_core.hardware.feetech_client as feetech_client_module
-from orca_core.hardware.dynamixel_client import (
+import src.orca_core.orca_core.hardware.feetech_client as feetech_client_module
+from src.orca_core.orca_core.hardware.dynamixel_client import (
     DynamixelClient,
     dynamixel_cleanup_handler,
 )
-from orca_core.hardware.feetech_client import (
+from src.orca_core.orca_core.hardware.feetech_client import (
     COMM_SUCCESS,
     FeetechClient,
     feetech_cleanup_handler,

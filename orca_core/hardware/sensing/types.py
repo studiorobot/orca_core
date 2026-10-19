@@ -8,8 +8,8 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from orca_core.constants import FingerName
-from orca_core.hardware.hand_serial_link import LinkStats
+from src.orca_core.orca_core.constants import FingerName
+from src.orca_core.orca_core.hardware.hand_serial_link import LinkStats
 
 
 ForceVector = list[float]

@@ -33,15 +33,15 @@ from typing import List
 
 import numpy as np
 
-from orca_core import OrcaHand, OrcaHandJointFeedback, load_hand
-from orca_core.control.constants import (
+from src.orca_core.orca_core import OrcaHand, OrcaHandJointFeedback, load_hand
+from src.orca_core.orca_core.control.constants import (
     DEFAULT_CORRECTION_MAX_DEG,
     DEFAULT_KI,
     DEFAULT_KP,
 )
-from orca_core import JointFeedbackConnectError
-from orca_core.hardware.joint_encoder_client import EncodersNotAvailableError
-from orca_core.joint_position import OrcaJointPositions
+from src.orca_core.orca_core import JointFeedbackConnectError
+from src.orca_core.orca_core.hardware.joint_encoder_client import EncodersNotAvailableError
+from src.orca_core.orca_core.joint_position import OrcaJointPositions
 
 REFRESH_MS = 100
 

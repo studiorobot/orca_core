@@ -11,8 +11,8 @@ import shutil
 
 import pytest
 
-import orca_core
-from orca_core import (
+import src.orca_core.orca_core as orca_core
+from src.orca_core.orca_core import (
     EncodersNotAvailableError,
     JointFeedbackConnectError,
     MockOrcaHandJointFeedback,
@@ -41,10 +41,10 @@ def test_error_and_health_types_are_exported():
 
 
 def test_deep_import_paths_stay_valid():
-    from orca_core.hardware.joint_encoder_client import (
+    from src.orca_core.orca_core.hardware.joint_encoder_client import (
         EncodersNotAvailableError as deep_enc,
     )
-    from orca_core.hardware_hand_sensing import (
+    from src.orca_core.orca_core.hardware_hand_sensing import (
         JointFeedbackConnectError as deep_jf,
     )
 
@@ -61,7 +61,7 @@ def test_silent_encoder_stream_surfaces_as_connect_error(tmp_path):
 
     class _NoFrames(MockOrcaHandJointFeedback):
         def _create_encoder_link(self, port):
-            from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+            from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
 
             return MockHandSerialLink(port=port, baudrate=self.config.encoder_baudrate)
 

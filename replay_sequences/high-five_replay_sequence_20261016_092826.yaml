@@ -1,0 +1,40 @@
+metadata:
+  type: discrete_waypoints
+  created_at: '20261016_092847'
+  joint_ids:
+  - wrist
+  - thumb_cmc
+  - thumb_abd
+  - thumb_mcp
+  - thumb_dip
+  - index_abd
+  - index_mcp
+  - index_pip
+  - middle_abd
+  - middle_mcp
+  - middle_pip
+  - ring_abd
+  - ring_mcp
+  - ring_pip
+  - pinky_abd
+  - pinky_mcp
+  - pinky_pip
+  hand_type: right
+waypoints:
+- - -19.146339416503906
+  - -16.101638793945312
+  - 44.98337173461914
+  - 34.51957702636719
+  - 18.707847595214844
+  - -6.9962005615234375
+  - -14.111494064331055
+  - 67.3370361328125
+  - -0.4153881072998047
+  - -9.343610763549805
+  - 78.80049896240234
+  - 5.609710693359375
+  - -5.711418151855469
+  - 77.34518432617188
+  - 10.238908767700195
+  - -16.877979278564453
+  - 73.1111068725586

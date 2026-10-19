@@ -5,9 +5,9 @@ and Python objects. Pure functions only — no I/O, no state, no threading.
 """
 from typing import TypedDict
 
-from orca_core.hardware.sensing.framing import calculate_checksum
-from orca_core.hardware.sensing.types import ForceVector, ResultantForces, TaxelForces
-from orca_core.hardware.sensing.constants import (
+from src.orca_core.orca_core.hardware.sensing.framing import calculate_checksum
+from src.orca_core.orca_core.hardware.sensing.types import ForceVector, ResultantForces, TaxelForces
+from src.orca_core.orca_core.hardware.sensing.constants import (
     PROTOCOL_HEADER_REQUEST,
     PROTOCOL_HEADER_RESPONSE,
     PROTOCOL_HEADER_AUTO,

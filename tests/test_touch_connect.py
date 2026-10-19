@@ -8,14 +8,14 @@ from __future__ import annotations
 import dataclasses
 import os
 
-import orca_core.hardware_hand_sensing as hardware_hand_sensing
-from orca_core import MockOrcaHandTouch, OrcaHandTouch
-from orca_core.hand_config import OrcaHandTouchConfig
-from orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
-from orca_core.hardware.sensing.serial_discovery import SensingPorts
-from orca_core.hardware.sensing.tactile_mock import TactileMockState, install_tactile_mock
+import src.orca_core.orca_core.hardware_hand_sensing as hardware_hand_sensing
+from src.orca_core.orca_core import MockOrcaHandTouch, OrcaHandTouch
+from src.orca_core.orca_core.hand_config import OrcaHandTouchConfig
+from src.orca_core.orca_core.hardware.mock_hand_serial_link import MockHandSerialLink
+from src.orca_core.orca_core.hardware.sensing.serial_discovery import SensingPorts
+from src.orca_core.orca_core.hardware.sensing.tactile_mock import TactileMockState, install_tactile_mock
 
-from tests._helpers import wait_until
+from src.orca_core.tests._helpers import wait_until
 
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -17,8 +17,8 @@ import subprocess
 import sys
 import time
 
-from orca_core.constants import FINGER, MOTOR_MODELS, SUPPORTED_MOTOR_TYPES, WRIST
-from orca_core.maintenance import (
+from src.orca_core.orca_core.constants import FINGER, MOTOR_MODELS, SUPPORTED_MOTOR_TYPES, WRIST
+from src.orca_core.orca_core.maintenance import (
     MotorChainAborted,
     MotorChainError,
     change_all_baudrates,
@@ -29,7 +29,7 @@ from orca_core.maintenance import (
     resolve_port,
     valid_baudrates,
 )
-from orca_core.utils import get_and_choose_port, get_model_path, read_yaml
+from src.orca_core.orca_core.utils import get_and_choose_port, get_model_path, read_yaml
 
 RED, GREEN, BLUE, PURPLE, YELLOW = '\033[91m', '\033[92m', '\033[94m', '\033[95m', '\033[93m'
 ORANGE, BOLD, RESET = '\033[38;5;208m', '\033[1m', '\033[0m'

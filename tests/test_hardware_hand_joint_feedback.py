@@ -13,13 +13,13 @@ import shutil
 
 import pytest
 
-from orca_core.constants import CURRENT, MODE_MAP, WRIST
-from orca_core.control import JointController, JointLoopThread
-from orca_core import JointFeedbackConnectError
-from orca_core.joint_position import OrcaJointPositions
+from src.orca_core.orca_core.constants import CURRENT, MODE_MAP, WRIST
+from src.orca_core.orca_core.control import JointController, JointLoopThread
+from src.orca_core.orca_core import JointFeedbackConnectError
+from src.orca_core.orca_core.joint_position import OrcaJointPositions
 
-from tests._hand_feedback_helpers import make_calibrated_joint_feedback_hand
-from tests._helpers import wait_until
+from src.orca_core.tests._hand_feedback_helpers import make_calibrated_joint_feedback_hand
+from src.orca_core.tests._helpers import wait_until
 
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
